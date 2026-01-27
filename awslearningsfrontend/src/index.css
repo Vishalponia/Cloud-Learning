@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(145deg, #f3e248, #f0e43b);
+  color: #0b0f19;
+  font-size: 18px;
+
+  box-shadow:
+    0 0 12px rgba(243, 222, 33, 0.6),
+    inset 0 0 6px rgba(255, 255, 255, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 20px rgba(248, 233, 14, 0.9),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.footer-heading {
+  color: #fff27c;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.footer-link {
+  cursor: pointer;
+  color: #d1d5db;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #fcec0f;
+  padding-left: 6px;
+}
