@@ -6,7 +6,7 @@ export const courses = [
     duration: "2 Months",
     description:
       "Master AWS architecture with real-world projects and exam-focused training.",
-      pdf: "/syllabus/aws-saa.pdf",
+      pdf: "/syllabus/AWS-SAA1.pdf",
     content: [
       "AWS Cloud Overview – Regions & AZ",
       "IAM & AWS CLI (Users, Roles, Policies)",

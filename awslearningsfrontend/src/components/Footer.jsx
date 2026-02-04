@@ -115,7 +115,7 @@ export default function Footer() {
               "AWS Solution Architect – Associate",
               "AWS Solution Architect – Professional",
               "Google Cloud Platform",
-              "AZURE AZ-400",
+              "AZURE AZ-104",
               "AZURE AZ-900",
             ].map((course) => (
               <li key={course}>

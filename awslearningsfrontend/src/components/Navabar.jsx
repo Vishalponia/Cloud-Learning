@@ -104,6 +104,7 @@ export default function Navbar() {
         <ul className="hidden md:flex text-lg items-center gap-8 text-yellow-500 font-medium">
           <Link to="/" className="hover:text-blue-500">Home</Link>
           <Link to="/courses" className="hover:text-blue-500">Courses</Link>
+          <Link to="/Selflearning" className="hover:text-blue-500">Self Learning</Link>
           <Link to="/about" className="hover:text-blue-500">About Us</Link>
           <Link to="/contact" className="hover:text-blue-500">Contact Us</Link>
         </ul>
@@ -143,6 +144,7 @@ export default function Navbar() {
 
             <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
             <Link to="/courses" onClick={() => setMenuOpen(false)}>Courses</Link>
+            <Link to="/Selflearning" onClick={() => setMenuOpen(false)}>Self Learning</Link>
             <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
 

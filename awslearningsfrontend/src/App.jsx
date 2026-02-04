@@ -8,7 +8,8 @@ import Login from './pages/Login.jsx'
 import AboutUs from './pages/AboutUs.jsx'
 import Courses from './pages/Courses.jsx'
 import ContactUs from './pages/ContactUs.jsx'
-
+import SelfLearning from "./pages/Selflearning.jsx";
+import AdminContacts from "./pages/AdminContacts.jsx";
 function App() {
  
 
@@ -22,6 +23,9 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/Selflearning" element={<SelfLearning />} />
+        <Route path="/admin/contacts" element={<AdminContacts />} />
+
       </Routes>
       <Footer/>
     </>
