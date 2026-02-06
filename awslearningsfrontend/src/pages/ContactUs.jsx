@@ -135,10 +135,11 @@ export default function ContactUs() {
     e.preventDefault();
 
     const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
+  name: e.target.name.value,
+  email: e.target.email.value,
+  phone: e.target.phone.value,
+  message: e.target.message.value,
+};
 
     try {
       const response = await fetch("http://localhost:5000/contact", {
@@ -151,6 +152,7 @@ export default function ContactUs() {
 
       if (response.ok) {
         alert("✅ Message sent successfully!");
+        console.log("Form Data:", formData);
         e.target.reset();
       } else {
         alert("❌ Failed to send message");
@@ -170,7 +172,7 @@ export default function ContactUs() {
           <h1 className="text-4xl font-extrabold mb-3">
             Contact <span className="text-[#f5c26b]">Us</span>
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-white max-w-2xl mx-auto">
             Have questions or need guidance? Reach out to Cloud Learning —
             we’re here to help you build your cloud career.
           </p>
@@ -225,6 +227,17 @@ export default function ContactUs() {
                 type="email"
                 name="email"
                 placeholder="Your Email"
+                required
+                className="w-full px-4 py-2.5 rounded-md bg-[#0b0f19]
+                border border-gray-700 text-sm focus:ring-2
+                focus:ring-[#f5c26b] focus:outline-none"
+              />  
+
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
                 required
                 className="w-full px-4 py-2.5 rounded-md bg-[#0b0f19]
                 border border-gray-700 text-sm focus:ring-2

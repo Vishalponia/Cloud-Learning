@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import image from "../assets/heroimg.jpg";
+import { useNavigate } from "react-router-dom";
 import CourseCard from "../components/CourseCard";
 import CourseCard2 from "../components/CourseCard2";
 import expertImg from "../assets/expert.jpg";
@@ -9,6 +10,7 @@ import secureImg from "../assets/secure.jpg";
 
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="pt-22 ">
 
@@ -65,101 +67,95 @@ export default function Home() {
   </div>
 </section>
 
-      {/* ================= FEATURES ================= */}
-      <section className="relative py-24 overflow-hidden">
-  {/* ================= Background Video ================= */}
-  <video
-    className="absolute inset-0 w-full h-full object-cover"
-    autoPlay
-    loop
-    muted
-    playsInline
-  >
-    <source src="/videos/bgimage.mp4" type="video/mp4" />
-  </video>
+      
 
-  {/* ================= Dark Overlay ================= */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
-  {/* ================= Content ================= */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6">
 
-    {/* Heading */}
-    <h2 className="text-4xl font-extrabold text-center text-white mb-4">
-      Why Choose <span className="text-[#f5c26b]">Cloud Learning</span>?
-    </h2>
 
-    <p className="text-center text-gray-300 font-semibold max-w-2xl mx-auto mb-16">
-      Learn cloud the right way with industry-driven training,
-      real projects, and secure premium content.
-    </p>
-
-    {/* ================= Cards ================= */}
-    <div className="grid md:grid-cols-3 gap-10">
-      {[
-        {
-          title: "Industry Experts",
-          desc: "Learn AWS from certified cloud engineers with real production experience.",
-          img: expertImg,
-        },
-        {
-          title: "Hands-on Projects",
-          desc: "Work on real AWS projects that prepare you for cloud jobs.",
-          img: projectImg,
-        },
-        {
-          title: "Secure Learning",
-          desc: "Premium, secure content access only for enrolled students.",
-          img: secureImg,
-        },
-      ].map((item, index) => (
-        <div
-          key={index}
-          className="group relative rounded-2xl p-10
-                     bg-gradient-to-br from-[#0b0f19] to-[#111827]
-                     border border-[#f5c26b]/30
-                     transition-all duration-500 ease-out
-                     hover:-translate-y-3
-                     hover:border-[#f5c26b]
-                     hover:shadow-[0_25px_60px_rgba(245,194,107,0.35)]"
+<section className="relative py-24 overflow-hidden">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
         >
-          {/* Golden Hover Glow */}
-          <div className="absolute inset-0 rounded-2xl
-                          bg-gradient-to-br from-[#f5c26b]/10 to-transparent
-                          opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <source src="/videos/bgimage.mp4" type="video/mp4" />
+        </video>
 
-          {/* Icon / Image */}
-          <div className="relative z-10 w-24 h-24 mx-auto mb-8 rounded-full
-                          bg-gradient-to-br from-[#f5c26b] to-[#fde68a]
-                          flex items-center justify-center
-                          shadow-[0_10px_25px_rgba(245,194,107,0.5)]">
-            <img
-              src={item.img}
-              alt={item.title}
-              className="h-16 w-16 object-contain"
-            />
-          </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
-          {/* Title */}
-          <h3 className="relative z-10 text-xl font-semibold text-white text-center mb-4">
-            {item.title}
-          </h3>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center text-white mb-4">
+            Why Choose <span className="text-[#f5c26b]">Cloud Learning</span>?
+          </h2>
 
-          {/* Description */}
-          <p className="relative z-10 text-gray-300 text-center leading-relaxed">
-            {item.desc}
+          <p className="text-center text-gray-300 font-semibold max-w-2xl mx-auto mb-16">
+            Learn cloud the right way with industry-driven training,
+            real projects, and secure premium content.
           </p>
 
-          {/* Golden Divider */}
-          <div className="relative z-10 mt-8 mx-auto h-[3px] w-14
-                          bg-gradient-to-r from-[#f5c26b] to-[#fde68a]
-                          rounded-full
-                          group-hover:w-24 transition-all duration-500"></div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Industry Experts",
+                desc: "Learn AWS from certified cloud engineers with real production experience.",
+                img: expertImg,
+              },
+              {
+                title: "Hands-on Projects",
+                desc: "Work on real AWS projects that prepare you for cloud jobs.",
+                img: projectImg,
+              },
+              {
+                title: "Secure Learning",
+                desc: "Premium, secure content access only for enrolled students.",
+                img: secureImg,
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                onClick={() => navigate("/courses")}
+                className="group relative rounded-2xl p-10
+                           bg-gradient-to-br from-[#0b0f19] to-[#111827]
+                           border border-[#f5c26b]/30
+                           cursor-pointer
+                           transition-all duration-500 ease-out
+                           hover:-translate-y-3
+                           hover:border-[#f5c26b]
+                           hover:shadow-[0_25px_60px_rgba(245,194,107,0.35)]"
+              >
+                {/* Hover Glow */}
+                <div className="absolute inset-0 rounded-2xl
+                                bg-gradient-to-br from-[#f5c26b]/10 to-transparent
+                                opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                <div className="relative z-10 w-24 h-24 mx-auto mb-8 rounded-full
+                                bg-gradient-to-br from-[#f5c26b] to-[#fde68a]
+                                flex items-center justify-center
+                                shadow-[0_10px_25px_rgba(245,194,107,0.5)]">
+                  <img src={item.img} alt={item.title} className="h-16 w-16" />
+                </div>
+
+                <h3 className="relative z-10 text-xl font-semibold text-white text-center mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="relative z-10 text-gray-300 text-center">
+                  {item.desc}
+                </p>
+
+                <div className="relative z-10 mt-8 mx-auto h-[3px] w-14
+                                bg-gradient-to-r from-[#f5c26b] to-[#fde68a]
+                                rounded-full group-hover:w-24 transition-all duration-500"></div>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
 
 

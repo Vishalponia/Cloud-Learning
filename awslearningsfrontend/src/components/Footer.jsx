@@ -73,21 +73,32 @@ export default function Footer() {
             NH-24, Ghaziabad, UP – 201002
           </p>
 
-          <p className="flex gap-3">
-            <Phone className="text-yellow-400" />
-            +91 8287546108
-          </p>
+          <p className="flex gap-3 items-center">
+  <a
+    href="tel:+918287546108"
+    className="flex gap-3 items-center hover:text-yellow-400 transition"
+  >
+    <Phone className="text-yellow-400" />
+    <span>+91 8287546108</span>
+  </a>
+</p>
 
-          <p className="flex gap-3">
-            <Mail className="text-yellow-400" />
-            awslearnings@gmail.com
-          </p>
+<p className="flex gap-3 items-center">
+  <a
+    href="mailto:awslearnings@gmail.com"
+    className="flex gap-3 items-center hover:text-yellow-400 transition"
+  >
+    <Mail className="text-yellow-400" />
+    <span>awslearnings@gmail.com</span>
+  </a>
+</p>
+
         </div>
 
         {/* ================= QUICK LINKS ================= */}
         <div>
   <h4 className="text-white font-semibold text-lg">Quick Links</h4>
-  <ul className="mt-5 space-y-3">
+  <ul className="mt-5 space-y-3 text-white">
     {[
       { name: "Home", path: "/" },
       { name: "Courses", path: "/courses" },
@@ -110,7 +121,7 @@ export default function Footer() {
         {/* ================= COURSES ================= */}
         <div>
           <h4 className="text-white font-semibold text-lg">Top Courses</h4>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 space-y-3 text-white">
             {[
               "AWS Solution Architect – Associate",
               "AWS Solution Architect – Professional",
@@ -133,13 +144,37 @@ export default function Footer() {
       
 
       {/* ================= BOTTOM BAR ================= */}
-      <div className="border-t border-gray-800 py-6 text-center text-sm">
-        © {new Date().getFullYear()}{" "}
-        <span className="text-yellow-400 font-semibold">
-          Cloud Learning
-        </span>{" "}
-        — Crafted for Future Cloud Engineers
-      </div>
+      {/* ================= BOTTOM BAR ================= */}
+<div className="border-t border-gray-800 py-6">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+
+    <p className="text-gray-400 text-center md:text-left">
+      © {new Date().getFullYear()}{" "}
+      <span className="text-yellow-400 font-semibold">
+        Cloud Learning
+      </span>{" "}
+      — Crafted for Future Cloud Engineers
+    </p>
+
+    <div className="flex gap-6">
+      <Link
+        to="/privacy-policy"
+        className="text-gray-400 hover:text-yellow-400 transition"
+      >
+        Privacy Policy
+      </Link>
+
+      <Link
+        to="/terms-conditions"
+        className="text-gray-400 hover:text-yellow-400 transition"
+      >
+        Terms & Conditions
+      </Link>
+    </div>
+
+  </div>
+</div>
+
     </footer>
     
   );

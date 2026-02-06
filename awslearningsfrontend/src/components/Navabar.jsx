@@ -107,6 +107,7 @@ export default function Navbar() {
           <Link to="/Selflearning" className="hover:text-blue-500">Self Learning</Link>
           <Link to="/about" className="hover:text-blue-500">About Us</Link>
           <Link to="/contact" className="hover:text-blue-500">Contact Us</Link>
+          {/* <Link to="/admin/contacts" className="hover:text-blue-500">Admin Contact</Link> */}
         </ul>
 
         {/* Auth Buttons */}
@@ -120,11 +121,11 @@ export default function Navbar() {
           </Link>
 
           <Link
-            to="/signup"
+            to="/contact"
             className="px-4 py-2 bg-blue-600 text-white rounded
                        hover:bg-blue-700 transition"
           >
-            Sign Up
+            Ask Query
           </Link>
         </div>
 
