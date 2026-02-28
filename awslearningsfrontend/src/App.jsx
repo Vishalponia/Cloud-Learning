@@ -14,6 +14,9 @@ import AdminContacts from "./pages/AdminContacts.jsx";
 import Contacts from "./pages/admin/Contacts";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
+import  FreeCourses from "./pages/FreeCourses.jsx";
+import Register from "./pages/Regisater.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
  
 
@@ -25,8 +28,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/courses" element={<Courses />} />
+        <Route
+  path="/free-courses"
+  element={
+    <ProtectedRoute>
+      <FreeCourses />
+    </ProtectedRoute>
+  }
+/>
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/Selflearning" element={<SelfLearning />} />
         <Route path="/admin/contacts" element={<Contacts />} />

@@ -1,0 +1,21 @@
+
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    restart: always
+
+  frontend:
+    build: ./awslearningsfrontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./awslearningsfrontend:/app
+    stdin_open: true
+    tty: true

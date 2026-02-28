@@ -1,87 +1,84 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
+
+      if (data.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/free-courses");
+      }
+    } else {
+      alert(data.message);
+    }
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center
-                        bg-gradient-to-br from-[#f9fafb] via-white to-[#fdf6e3]
-                        px-4 pt-28">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-2xl shadow-lg w-96"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6
-                      border border-gray-200
-                      animate-fadeIn">
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+          className="w-full mb-4 p-2 border rounded"
+        />
 
-        {/* Heading */}
-        <h2 className="text-2xl font-extrabold text-center text-gray-900">
-          Welcome Back
-        </h2>
-        <p className="text-center text-sm text-gray-600 mt-1 mb-6">
-          Login to <span className="text-yellow-500 font-bold">Cloud Learning</span>
-        </p>
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          required
+          className="w-full mb-4 p-2 border rounded"
+        />
 
-        {/* Form */}
-        <form className="space-y-4">
+        <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 mb-4">
+          Login
+        </button>
 
-          {/* Email */}
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full px-3 py-2.5 text-sm rounded-md border
-                       border-gray-300
-                       focus:ring-2 focus:ring-[#f5c26b]
-                       focus:outline-none transition"
-          />
-
-          {/* Password */}
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full px-3 py-2.5 text-sm rounded-md border
-                       border-gray-300
-                       focus:ring-2 focus:ring-[#f5c26b]
-                       focus:outline-none transition"
-          />
-
-          {/* Forgot */}
-          <div className="text-right">
-            <Link
-              to="/forgot-password"
-              className="text-xs text-[#c89c3c] hover:underline"
-            >
-              Forgot Password?
-            </Link>
-          </div>
-
-          {/* Button */}
-          <button
-            type="submit"
-            className="w-full py-2.5 rounded-md text-sm font-semibold
-                       bg-yellow-500 text-black
-                       hover:bg-yellow-600
-                       transition-all duration-200
-                       hover:shadow-lg hover:-translate-y-[1px]"
-          >
-            Login
-          </button>
-        </form>
-
-        {/* Divider */}
-        <div className="flex items-center gap-3 my-5">
-          <div className="flex-1 h-px bg-gray-200"></div>
-          <span className="text-xs text-gray-400">OR</span>
-          <div className="flex-1 h-px bg-gray-200"></div>
-        </div>
-
-        {/* Signup */}
-        <p className="text-center text-xs text-gray-600">
+        {/* Signup Link */}
+        <p className="text-center text-sm">
           Don’t have an account?{" "}
           <Link
-            to="/signup"
-            className="text-[#c89c3c] font-semibold hover:underline"
+            to="/register"
+            className="text-blue-600 font-semibold hover:underline"
           >
-            Create one
+            Sign Up
           </Link>
         </p>
-      </div>
-    </section>
+      </form>
+    </div>
   );
 }
